@@ -10,7 +10,7 @@ app.secret_key = 'personal-ai-assistant-key'
 
 # 模拟用户数据
 fake_users = {
-    'user': 'user123',
+    'admin': 'admin123',
     'user1': 'password123',
     'guest': 'guest123'
 }
@@ -301,4 +301,5 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
+
 
