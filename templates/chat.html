@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人AI生活助手</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='chat.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- 头部 -->
+        <div class="chat-header">
+            <div class="header-content">
+                <div class="ai-avatar">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="header-info">
+                    <h2>个人AI生活助手</h2>
+                    <p class="status">专注于你的生活、学习和成长</p>
+                </div>
+                <div class="header-actions">
+                    <span class="username">你好，{{ username }}</span>
+                    <a href="/logout" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快速操作区域 -->
+        <div class="quick-actions">
+            <div class="action-buttons">
+                <button class="action-btn" data-action="学习计划">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>学习计划</span>
+                </button>
+                <button class="action-btn" data-action="时间管理">
+                    <i class="fas fa-clock"></i>
+                    <span>时间管理</span>
+                </button>
+                <button class="action-btn" data-action="习惯养成">
+                    <i class="fas fa-seedling"></i>
+                    <span>习惯养成</span>
+                </button>
+                <button class="action-btn" data-action="情绪支持">
+                    <i class="fas fa-smile"></i>
+                    <span>情绪支持</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 消息区域 -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- 欢迎消息 -->
+            <div class="message ai-message">
+                <div class="message-avatar">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="message-content">
+                    <div class="message-text">
+                        你好{{ username }}！我是你的个人AI生活助手，专注于帮助你解决日常生活、学习成长和时间管理方面的问题。今天有什么需要我帮助的吗？
+                    </div>
+                    <div class="message-time">现在</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 输入区域 -->
+        <div class="chat-input">
+            <div class="input-container">
+                <textarea 
+                    id="messageInput" 
+                    placeholder="告诉我你今天的需求，比如学习计划、时间安排、情绪支持..." 
+                    rows="1"
+                    maxlength="500"
+                ></textarea>
+                <button id="sendButton" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-tips">
+                <span class="char-count">0/500</span>
+                <span class="tips">按 Enter 发送，Shift+Enter 换行</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载动画 -->
+    <div class="loading" id="loading" style="display: none;">
+        <div class="loading-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <span>正在思考中...</span>
+    </div>
+
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>

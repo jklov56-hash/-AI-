@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI计划系统 - 登录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-robot" style="font-size: 48px; color: #667eea; margin-bottom: 20px;"></i>
+            <h1>AI智能系统</h1>
+            <p style="color: #6c757d; margin-bottom: 30px;">欢迎使用智能助手</p>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="error">{{ messages[0] }}</div>
+            {% endif %}
+        {% endwith %}
+        
+        <form method="post">
+            <div class="input-group">
+                <i class="fas fa-user" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #6c757d;"></i>
+                <input type="text" name="username" placeholder="用户名" required>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock" style="position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: #6c757d;"></i>
+                <input type="password" name="password" placeholder="密码" required>
+            </div>
+            <button type="submit">
+                <i class="fas fa-sign-in-alt"></i>
+                登录
+            </button>
+        </form>
+        
+        <div class="tip">
+            <p><strong>测试账号：</strong></p>
+            <p>用户名：admin，密码：admin123</p>
+            <p>用户名：user1，密码：password123</p>
+            <p>用户名：customer，密码：customer123</p>
+        </div>
+    </div>
+</body>
+</html>
