@@ -24,7 +24,7 @@ user_data = {}
 # 个人AI助手配置
 class PersonalAIAssistant:
     def __init__(self):
-        self.api_key = 'sk-3b11d1b1bd6747b6aa19cf44845aae84'
+        self.api_key = ''
         self.api_url = 'https://api.deepseek.com/chat/completions'
     
     def inference_chat_deepseek(self, chat, token):
@@ -301,3 +301,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
+
